@@ -1,0 +1,16 @@
+[tool.black]
+skip-string-normalization = true
+
+[tool.pyright]
+include = [
+    "bot",
+]
+pythonVersion = "3.9"
+
+typeCheckingMode = "strict"
+reportUnusedImport = true
+reportPrivateUsage = true
+reportImportCycles = true
+reportUnknownVariableType = true
+reportUnknownMemberType = true
+reportUnknownArgumentType = true
