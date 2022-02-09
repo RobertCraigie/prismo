@@ -27,6 +27,7 @@ def load() -> hikari.GatewayBot:
     (
         tanjun.Client.from_gateway_bot(bot)
         .load_modules('bot.components.meta')
+        .load_modules('bot.components.roles')
         .add_prefix(config.prefix)
         .set_type_dependency(hikari.GatewayBot, bot)
         .set_type_dependency(Config, config)
