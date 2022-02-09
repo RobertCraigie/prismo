@@ -94,7 +94,7 @@ async def reaction_add_callback(
     role_id = _resolve_emoji_role(event)
     if role_id is not None:
         await event.member.add_role(
-            role_id, reason=f'User reacted with {event.emoji_name}'
+            role_id, reason=f'User added to a reaction role'
         )
 
 
@@ -113,7 +113,7 @@ async def reaction_delete_callback(
             role=role_id,
             user=event.user_id,
             guild=event.guild_id,
-            reason=f'The {event.emoji_name} reaction was removed',
+            reason=f'User removed a reaction role',
         )
 
 
