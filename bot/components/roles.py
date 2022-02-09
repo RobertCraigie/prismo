@@ -11,8 +11,8 @@ component = tanjun.Component()
 
 MESSAGE_ID: int = 940855218533441556
 EMOJIS: Dict[str, Tuple[str, int]] = {
-    '🚀': ('Get pinged for server announcements!', 940841684802105355),
-    '📢': ('Get pinged for new releases!', 939724049330868274),
+    '🚀': ('Get pinged for server announcements!', 939724049330868274),
+    '📢': ('Get pinged for new releases!', 940841684802105355),
 }
 
 
