@@ -7,7 +7,7 @@ This repository contains the source code for the Prisma Python discord bot!
 ```py
 python3 -m venv .venv
 source .venv/bin/activate
-pip install -U -r requirements.txt
+pip install -U -r requirements-dev.txt
 ```
 
 Create an application on https://discord.com/developers/applications and create a `.env` file with the bot token that Discord gives you:
