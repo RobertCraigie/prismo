@@ -9,8 +9,7 @@ from ..utils import is_self
 
 component = tanjun.Component()
 
-# TODO: replace message_id with actual message_id
-MESSAGE_ID: int = 0
+MESSAGE_ID: int = 940855218533441556
 EMOJIS: Dict[str, Tuple[str, int]] = {
     '🚀': ('Get pinged for server announcements!', 940841684802105355),
     '📢': ('Get pinged for new releases!', 939724049330868274),
@@ -72,11 +71,11 @@ async def role_message(
             embed=embed,
         )
     else:
-        # TODO: can't edit the message until we've sent the original message and know the ID
-        message = await ctx.respond(
-            'Editing message not supported yet', ensure_result=True
+        message = await bot.rest.edit_message(
+            message=MESSAGE_ID,
+            channel=channel.id,
+            embed=embed,
         )
-        return
 
     # NOTE: we should really be doing an asyncio.gather() here but this hits a rate limit :/
     for emoji in EMOJIS:
