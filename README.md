@@ -28,3 +28,9 @@ Run the bot
 ```
 python -m bot
 ```
+
+You can now navigate to discord and confirm the bot is running by the sending the following message:
+
+```
+?ping
+```
