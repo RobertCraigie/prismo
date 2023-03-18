@@ -1,2 +1,2 @@
 -r requirements.txt
-blue==0.7.0
+blue==0.9.1
