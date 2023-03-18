@@ -122,3 +122,4 @@ venv.bak/
 
 # local testing files
 tmp/
+dev.db
