@@ -5,8 +5,10 @@ datasource db {
 
 generator client {
   provider             = "prisma-client-py"
+  interface            = "asyncio"
   recursive_type_depth = -1
 }
+
 
 model User {
   id   BigInt @id
