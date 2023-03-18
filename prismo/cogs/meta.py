@@ -12,7 +12,7 @@ if TYPE_CHECKING:
 
 class Meta(commands.Cog):
     @commands.command()
-    async def ping(self, ctx: commands.Context) -> None:
+    async def ping(self, ctx: commands.Context[PrismoBot]) -> None:
         start_time = time.perf_counter()
         msg = await ctx.reply("Hello, there!")
 
@@ -25,6 +25,7 @@ class Meta(commands.Cog):
             f"PONG\n - REST: {time_taken:.0f}ms\n - Gateway: {heartbeat_latency:.0f}ms\n"
             f"Uptime since {uptime.days} days and {uptime.seconds} seconds"
         )
+
 
 def setup(bot: PrismoBot):
     bot.add_cog(Meta())

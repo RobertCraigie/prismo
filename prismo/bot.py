@@ -1,10 +1,9 @@
-import asyncio
 import logging
 import datetime
 
 from pathlib import Path
 
-from prisma import Client as Prisma, get_client as get_prisma
+from prisma import Client as Prisma
 from prisma.errors import ClientNotRegisteredError
 from disnake.ext import commands
 
@@ -21,18 +20,19 @@ class PrismoBot(commands.Bot):
         )
 
         self._setup_logging()
-        self.prismo_extensions = {"cogs",}
-    
+        self.prismo_extensions = {"cogs", }
+
     def _setup_logging(self) -> None:
         self.logger = logging.getLogger("disnake")
         self.logger.setLevel(BotConfig.log_level)
         self.handler = logging.StreamHandler()
-        self.handler.setFormatter(logging.Formatter("%(asctime)s:%(levelname)s:%(name)s: %(message)s"))
+        self.handler.setFormatter(logging.Formatter(
+            "%(asctime)s:%(levelname)s:%(name)s: %(message)s"))
         self.logger.addHandler(self.handler)
 
     async def on_ready(self) -> None:
         self.logger.info("Logged in as %s", self.user)
-    
+
     # note that on_connect and on_disconnect are both called multiple times during bot's
     # lifetime; the reason is that disnake implements reconnection logic
     # so we'll connect and disconnect from the database multiple times during the bot's lifetime
@@ -51,16 +51,17 @@ class PrismoBot(commands.Bot):
         except ClientNotRegisteredError:
             pass
 
-    async def start(self) -> None:
+    async def start(self) -> None:  # type: ignore
         # we'll use this start time later in the ping command :)
         self.start_time = datetime.datetime.utcnow()
         self.logger.info("Starting the bot")
         self.load_ext()
 
         await super().start(BotConfig.token, reconnect=True)
-    
+
     def load_ext(self) -> None:
         for extension_path in self.prismo_extensions:
             path = Path(extension_path).absolute()
             self.load_extensions(path.as_posix())
-            self.logger.info("%s extension was successfully loaded", extension_path)
+            self.logger.info(
+                "%s extension was successfully loaded", extension_path)
