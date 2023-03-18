@@ -1,12 +1,10 @@
 from __future__ import annotations
-from typing import TYPE_CHECKING, Dict, Tuple, List
+from typing import Dict, Tuple, List
 
 import disnake
 from disnake.ext import commands
 
-
-if TYPE_CHECKING:
-    from bot import PrismoBot
+from bot import PrismoBot
 
 MESSAGE_ID: int = 1086687431945883658
 EMOJIS: Dict[str, Tuple[str, str, int]] = {

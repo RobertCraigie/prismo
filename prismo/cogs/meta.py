@@ -1,13 +1,11 @@
 from __future__ import annotations
-from typing import TYPE_CHECKING
 
 import time
 import datetime
 
 from disnake.ext import commands
 
-if TYPE_CHECKING:
-    from bot import PrismoBot
+from bot import PrismoBot
 
 
 class Meta(commands.Cog):
