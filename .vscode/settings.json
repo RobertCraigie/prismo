@@ -1,6 +1,0 @@
-{
-    "[python]": {
-        "editor.formatOnSave": true,
-    },
-    "python.formatting.blackPath": "blue"
-}
