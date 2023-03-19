@@ -20,7 +20,7 @@ class PrismoBot(commands.Bot):
         )
 
         self._setup_logging()
-        self.prismo_extensions = {"cogs", }
+        self.prismo_extensions = {"exts", }
 
     def _setup_logging(self) -> None:
         self.logger = logging.getLogger("disnake")
