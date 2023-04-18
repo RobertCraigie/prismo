@@ -41,7 +41,8 @@ class PrismoBot(commands.Bot):
     async def on_connect(self) -> None:
         self.prisma_client = Prisma(auto_register=True)
         self.logger.debug("Connecting to the database")
-        await self.prisma_client.connect()
+        if not self.prisma_client.is_connected():
+            await self.prisma_client.connect()
 
     async def on_disconnect(self) -> None:
         try:
